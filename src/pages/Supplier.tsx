@@ -99,7 +99,11 @@ const Supplier = () => {
                   <p className="text-2xl font-bold text-primary">{delivery.amount}</p>
                   <p className="text-sm text-muted-foreground">Payment Amount</p>
                 </div>
-                <Button variant="outline" size="sm" className="ml-6">
+                <Button 
+                  variant="outline" 
+                  size="sm"
+                  onClick={() => window.open(`https://hashscan.io/mainnet/transaction/${delivery.id}`, "_blank")}
+                >
                   View Contract
                 </Button>
               </div>

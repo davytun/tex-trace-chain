@@ -1,9 +1,11 @@
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Boxes, Package, User, Award } from "lucide-react";
+import { Boxes, Package, User, Award, LogOut } from "lucide-react";
+import { useAuth } from "@/hooks/useAuth";
 
 const Navigation = () => {
   const location = useLocation();
+  const { user, signOut } = useAuth();
   
   const isActive = (path: string) => location.pathname === path;
   
@@ -48,11 +50,20 @@ const Navigation = () => {
             </Link>
           </div>
           
-          <Link to="/auth">
-            <Button variant="gradient" size="sm">
-              Connect Wallet
-            </Button>
-          </Link>
+          {user ? (
+            <div className="flex items-center gap-4">
+              <Button variant="ghost" size="sm" onClick={signOut}>
+                <LogOut className="w-4 h-4 mr-2" />
+                Sign Out
+              </Button>
+            </div>
+          ) : (
+            <Link to="/auth">
+              <Button variant="gradient" size="sm">
+                Connect Wallet
+              </Button>
+            </Link>
+          )}
         </div>
       </div>
     </nav>

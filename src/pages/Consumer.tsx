@@ -175,7 +175,11 @@ const Consumer = () => {
               </div>
             </Card>
 
-            <Button variant="outline" className="w-full" onClick={() => window.open("https://mainnet.mirrornode.hedera.com", "_blank")}>
+            <Button 
+              variant="outline" 
+              className="w-full" 
+              onClick={() => window.open("https://hashscan.io/mainnet", "_blank")}
+            >
               View Full Details on Hedera Mirror Node
             </Button>
           </div>
